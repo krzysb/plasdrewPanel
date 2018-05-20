@@ -219,6 +219,32 @@ table .comments {
 }
 
 
+/*OPERATOr TABLE*/
+
+.readyProjectButton {
+    background: #17a2b8;
+    padding: 1rem;
+    color: #fff;
+}
+
+.readyProjectButton:hover {
+    color: #fff;
+}
+
+
+/*LEFT*/
+
+.nav-item__login {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #17a2b8;
+}
+
+
 /*!
  *   AdminLTE v3.0.0-alpha
  *   Author: Abdullah Almsaeed

@@ -1,6 +1,8 @@
 <?php
 require('connection.php');
+require('checkRole.php');
 include("auth.php");
+
 ?>
     <!DOCTYPE html>
     <html>
@@ -40,7 +42,9 @@ include("auth.php");
 -->
                 <!-- Right navbar links -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">Witaj admin </li>
+                    <li class="nav-item nav-item__login">Witaj
+                        <?php echo $_SESSION['username']?>
+                    </li>
                     <li class="nav-item"> <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="../logout.php">Wyloguj</a> </li>
                 </ul>
             </nav>
@@ -53,8 +57,12 @@ include("auth.php");
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div class="image"> <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> </div>
-                        <div class="info"> <a href="#" class="d-block">Alexander Pierce</a> </div>
+                        <div class="image"> <img src="../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image"> </div>
+                        <div class="info">
+                            <a href="#" class="d-block">
+                                <?php echo $_SESSION['username']?>
+                            </a>
+                        </div>
                     </div>
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
@@ -98,66 +106,25 @@ include("auth.php");
                 </div>
                 <!-- /.content-header -->
                 <!-- Main content -->
-                <section class="content">
-                    <div class="container-fluid">
-                        <!-- Small boxes (Stat box) -->
-                        <div class="row row--relative">
-                            <div class="box user-add">
-                                <?php 
-                                $action;
-                                if (isset ($_GET["action"])){
-                                    $action=$_GET["action"];
-                                }else{
-                                    $action="form";  
-                                }
-                                switch ($action)
-                                {
-                                    case "add-user":
-                                        include("addUser-method.php");
-                                        break;
-                                    default:
-                                include("../addUser.php"); 
+                <?php   
+                     $role= chceckRole($_SESSION['username'], $con);
+                        switch ($role)
+                        {
+                            case "admin":
+                                include("admin-dashboard.php");
                                 break;
-                                }
-                                ?>
-                            </div>
-                            <div class="box project-add"> <a href="#"><i class="fa fa-plus fa-5x" aria-hidden="true"></i></a> <a href=""><i class="fa fa-minus fa-5x" aria-hidden="true"></i></a>
-                                <div class="project-add__title">Dodaj nowy projekt</div>
-                            </div>
-                            <div class="box project-add-form" id="project-add-form" draggable="true">
-                                <?php 
-                                $action1;
-                                if (isset ($_GET["action"])){
-                                    $action1=$_GET["action"];
-                                }else{
-                                    $action1="form";  
-                                }
-                                switch ($action1)
-                                {
-                                    case "add-project":
-                                        include("addProject-method.php");
-                                        break;
-                                    case "editRowProject":
-                                        include("../editProject.php");
-                                        break;
-                                    case "update-project":
-                                        include("updateProject-method.php");
-                                        break;
-                                    default:
-                                include("../addProject.php");
+                            case "operator":
+                                include("operator-dashboard.php");
                                 break;
-                                }
-                                ?>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="box box--full">
-                                <?php include("../projects.php");?>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- /.content -->
+                            case "szef":
+                                include("operator-dashboard.php");
+                                    break;
+                                
+                         
+                        }
+               
+                ?>
+                    <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer"> <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved. </footer>

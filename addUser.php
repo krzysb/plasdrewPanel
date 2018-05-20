@@ -6,7 +6,7 @@
         <input type="password" name="password" placeholder="Password" required />
         <select name="role" id="">
             <option value="admin">admin</option>
-            <option value="pracownik">pracownik</option>
+            <option value="operator">operator</option>
             <option value="szef">szef</option>
         </select>
         <input type="submit" name="submit" value="Dodaj" class="bg" /> </form>

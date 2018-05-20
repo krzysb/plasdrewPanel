@@ -23,6 +23,17 @@
         document.getElementById("project-add-form").style.display = "none";
         window.location('http://localhost/plasdrew/admin/dashboard2.php');
     }
+    
+    //OPERATOR
+    
+    
+//    $(".readyProjectButton").click(function () {
+              //       
+              //        
+              //    }); 
+              //
+    
+    
     //    DRAGABLE
 //    dragElement(document.getElementById(("project-add-form")));
     $("#project-add-form").draggable({

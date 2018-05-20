@@ -26,7 +26,7 @@ and password='".md5($password)."'";
             if($rows==1){
                 $_SESSION['username'] = $username;
                 // Redirect user to index.php
-                header("Location: index.php");
+                header("Location: admin/dashboard2.php");
             }else{
                 echo "<div class='form'>
 <h3>Username/password is incorrect.</h3>
@@ -35,11 +35,11 @@ and password='".md5($password)."'";
         }else{
         ?>
         <div class="form login">
-            <h1>Log In</h1>
+            <h1>Zaloguj się</h1>
             <form action="" method="post" name="login">
-                <input type="text" name="username" placeholder="Username" required />
-                <input type="password" name="password" placeholder="Password" required />
-                <input name="submit" type="submit" value="Login" /> </form>
+                <input type="text" name="username" placeholder="Nazwa" required />
+                <input type="password" name="password" placeholder="Hasło" required />
+                <input name="submit" type="submit" value="Zaloguj" /> </form>
         </div>
         <?php } ?>
 </body>
