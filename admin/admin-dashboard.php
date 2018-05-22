@@ -13,15 +13,15 @@
                 switch ($action)
                 {
                     case "add-user":
-                        include("addUser-method.php");
+                        include("admin/addUser-method.php");
                         break;
                     default:
-                        include("../addUser.php"); 
+                        include("addUser.php"); 
                         break;
                 }
                 ?>
             </div>
-            <div class="box project-add"> <a href="#"><i class="fa fa-plus fa-5x" aria-hidden="true"></i></a> <a href=""><i class="fa fa-minus fa-5x" aria-hidden="true"></i></a>
+            <div class="box project-add"> <a href="#"><i class="fa fa-plus fa-5x" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-minus fa-5x" aria-hidden="true"></i></a>
                 <div class="project-add__title">Dodaj nowy projekt</div>
             </div>
             <div class="box project-add-form" id="project-add-form" draggable="true">
@@ -35,16 +35,22 @@
                 switch ($action1)
                 {
                     case "add-project":
-                        include("addProject-method.php");
+                        include("admin/addProject-method.php");
                         break;
                     case "editRowProject":
-                        include("../editProject.php");
+                        include("editProject.php");
                         break;
                     case "update-project":
-                        include("updateProject-method.php");
+                        include("admin/updateProject-method.php");
+                        break;
+                    case "uploadFileProject":
+                        include("uploadForm.php");
+                        break;
+                    case "uploadFilemethod":
+                        include("admin/upload-method.php");
                         break;
                     default:
-                        include("../addProject.php");
+                        include("addProject.php");
                         break;
                 }
                 ?>
@@ -52,7 +58,7 @@
         </div>
         <div class="row mt-3">
             <div class="box box--full">
-                <?php include("../projects.php");?>
+                <?php include("projects.php");?>
             </div>
         </div>
     </div>

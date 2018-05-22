@@ -33,7 +33,7 @@ echo '<div class="newProject" id="newProject">
           <input type="hidden" name="id" value="'.$id.'">
         </form>
         </div>
-        <div class="project-add-form__close"><a href="http://localhost/plasdrew/admin/dashboard2.php">x</a> </div>'; }else{ echo "Nie ma tekiego produktu"; } ?>
+        <div class="project-add-form__close"><a href="index.php">x</a> </div>'; }else{ echo "Nie ma tekiego produktu"; } ?>
             <script>
                 document.getElementById("project-add-form").style.display = "block";
             </script>

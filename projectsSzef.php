@@ -2,7 +2,7 @@
 if(isset ($_GET["order"])){
     $order=$_GET["order"];      
 }else{
-    $order="niezrealizowane" ;
+    $order="niezrealizowane";
 }
 
 ?>
@@ -41,27 +41,26 @@ if(isset ($_GET["order"])){
             <th scope="col">Uwagi</th>
             <th scope="col">Plik</th>
             <th scope="col">Status</th>
-            <th scope="col">Data</th>
-            
+            <th scope="col">Data dodania</th>
+            <th scope="col">Data wykonania</th>
+
         </tr>
     </thead>';
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<tr><td>" . $row["id"]. "</td><td>". $row["customer"]. "</td><td>" . $row["productName"]. "</td><td>". $row["quantity"]."</td><td>".$row["material"]."</td><td>".$row["size"]."</td><td class='comments'>".$row["comments"]."</td>";
-                    
-                        if(!empty($row["filePath"])){
-                            echo "<td> <a class='uploadFileButton' href=".$row["filePath"]."><i class='fa fa-file-o' aria-hidden='true'></i></a></td>";
-                        }else{
-                            echo "<td></td>";
-                        }
-                                     
+                    if(!empty($row["filePath"])){
+                        echo "<td> <a class='uploadFileButton' href=".$row["filePath"]."><i class='fa fa-file-o' aria-hidden='true'></i></a></td>";
+                    }else{
+                        echo "<td></td>";
+                    }
                     if ($row["status"]==0){
-                        echo "<td> <a class='readyProjectButton' href='?action=readyProject&id=".$row["id"]."'>GOTOWE</a></td><td>--:--</td>
-                        </td>";
+                        echo "<td>W trakcie</td><td>--:--</td><td>--:--</td>";
                     }else{
                         echo "<td>Zrobiony przez $row[madeBy]</td><td>";
+                        echo substr($row["dateAdd"],0,  -3); 
+                        echo"</td><td>";
                         echo substr($row["doneDate"],0,  -3); 
                         echo"</td></tr>";
-                        
                     }
                    
                 }

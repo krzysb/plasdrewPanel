@@ -28,7 +28,7 @@ if (isset($_POST['submit'])){
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Sukcess!</h4>
             <p> Dane zostały zaktualizowane</p>
-            <input type="button" value="OK" onclick="window.location.href = 'http://localhost/plasdrew/admin/dashboard2.php'" /> </div>
+            <input type="button" value="OK" onclick="window.location.href = 'index.php'" /> </div>
         <script>
             document.getElementById("project-add-form").style.display = "block";
         </script>

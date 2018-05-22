@@ -18,7 +18,9 @@
             if (mysqli_num_rows($result) > 0) {
                 // output data of each row
                 while($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr><td>" . $row["id"]. "</td><td>". $row["customer"]. "</td><td>" . $row["productName"]. "</td><td>". $row["quantity"]."</td><td>".$row["material"]."</td><td>".$row["size"]."</td><td class='comments'>".$row["comments"]."</td><td><a class='editProjectButton' href='?action=editRowProject&id=".$row["id"]."'><i class='fa fa-pencil' aria-hidden='true'></i></a></td></tr>";
+                    echo "<tr><td>" . $row["id"]. "</td><td>". $row["customer"]. "</td><td>" . $row["productName"]. "</td><td>". $row["quantity"]."</td><td>".$row["material"]."</td><td>".$row["size"]."</td><td class='comments'>".$row["comments"]."</td><td><a class='editProjectButton' href='?action=editRowProject&id=".$row["id"]."'><i class='fa fa-pencil' aria-hidden='true'></i></a> 
+                    <a class='uploadFileButton' href='?action=uploadFileProject&id=".$row["id"]."'><i class='fa fa-file-o' aria-hidden='true'></i></a>
+                    </td></tr>";
                 }
             } else {
                 echo "brak danych";

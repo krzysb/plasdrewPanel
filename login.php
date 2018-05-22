@@ -4,7 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css" /> </head>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        body {
+            background: -webkit-linear-gradient(bottom left, rgba(32, 201, 151, 0.3), rgba(23, 162, 184, 0.3)), url(img/logo_plas_drew.png)no-repeat center / contain;
+            background: -o-linear-gradient(bottom left, rgba(32, 201, 151, 0.3), rgba(23, 162, 184, 0.3)), url(img/logo_plas_drew.png)no-repeat center / contain;
+            background: linear-gradient(to top right, rgba(32, 201, 151, 0.3), rgba(23, 162, 184, 0.3)), url(img/logo_plas_drew.png)no-repeat center / contain;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
 
 <body>
     <?php
@@ -26,7 +35,7 @@ and password='".md5($password)."'";
             if($rows==1){
                 $_SESSION['username'] = $username;
                 // Redirect user to index.php
-                header("Location: admin/dashboard2.php");
+                header("Location: index.php");
             }else{
                 echo "<div class='form'>
 <h3>Username/password is incorrect.</h3>
