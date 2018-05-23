@@ -7,27 +7,41 @@
         $row=mysqli_fetch_assoc($result);
 echo '<div class="newProject" id="newProject">
     <h1 class="newProject__item">Edytuj projekt</h1>
-    <form class="newProject__item" id="addProject" name="addNewProject" action="?action=update-project" method="post">
+    <form class="editProject__item" id="addProject" name="addNewProject" action="?action=update-project" method="post">
         <input type="text" name="projectNr" placeholder="Numer projektu" required disabled value='.$row['id'].' />
         <input type="text" name="customerName" placeholder="Klient" required value='.$row['customer'].' />
         <select name="product" id="productSelect">';?>
-    <option <?php if ($row[ 'productName']=="winietka" ){echo 'selected="selected"';}?> value="winietka">winietka</option>
-    <option <?php if ($row[ 'productName']=="zawieszka na wodkę" ){echo 'selected="selected"';}?> value="zawieszka na wodkę">zawieszka na wodkę</option>
-    <option <?php if ($row[ 'productName']=="numerek 35 cm" ){echo 'selected="selected"';} ?> value="numerek 35 cm">Numerek 35 cm</option>
+    <option <?php if ($row[ 'productName']=="Winietka" ){echo 'selected="selected"';}?> value="Winietka">Winietka</option>
+    <option <?php if ($row[ 'productName']=="Podstawka pod obrączki" ){echo 'selected="selected"';}?> value="Podstawka pod obrączki">Podstawka pod obrączki</option>
+    <option <?php if ($row[ 'productName']==">Pudełko pod obrączki" ){echo 'selected="selected"';}?> value="Pudełko pod obrączki">Pudełko pod obrączki</option>
+    <option <?php if ($row[ 'productName']=="Księga gościPodstawka pod obrączki" ){echo 'selected="selected"';}?> value="Księga gości">Księga gości</option>
+    <option <?php if ($row[ 'productName']=="Numerek na stół 18 cm" ){echo 'selected="selected"';}?> value="Numerek na stół 18 cm">Numerek na stół 18 cm</option>
+    <option <?php if ($row[ 'productName']=="Numerek na stół 35 cm" ){echo 'selected="selected"';}?> value="Numerek na stół 35 cm">Numerek na stół 35 cm</option>
+    <option <?php if ($row[ 'productName']=="Numerek ćwiartka" ){echo 'selected="selected"';}?> value="Numerek ćwiartka">Numerek ćwiartka</option>
+    <option <?php if ($row[ 'productName']=="Zawieszka na alkohol" ){echo 'selected="selected"';}?> value="Zawieszka na alkohol">Zawieszka na alkohol</option>
+    <option <?php if ($row[ 'productName']=="Prezent dla gości" ){echo 'selected="selected"';}?> value="Prezent dla gości">Prezent dla gości</option>
+    <option <?php if ($row[ 'productName']=="Inne" ){echo 'selected="selected"';}?> value="Inne">Inne</option>
     <?php
    echo' </select>
-    <input type="text" name="quantity" placeholder="Ilość" required value='.$row['quantity'].' />
-    <select name="material">'?>
-        <option <?php if ($row[ 'material']=="sklejka" ){echo 'selected="selected"';}?> value="sklejka">sklejka</option>
-        <option <?php if ($row[ 'material']=="plaster" ){echo 'selected="selected"';}?> value="plaster">plaster</option>
+    
+    <select name="material" id="materialSelect">'?>
+        <option <?php if ($row[ 'material']=="Sklejka" ){echo 'selected="selected"';}?> value="Sklejka" data-category="1">Sklejka</option>
+        <option <?php if ($row[ 'material']=="Plaster" ){echo 'selected="selected"';}?> value="Plaster" data-category="2">Plaster</option>
         </select>
-        <select name="size">
-            <option <?php if ($row[ 'size']=="nie dotyczy" ){echo 'selected="selected"';}?> value="nie dotyczy">nie dotyczy</option>
-            <option <?php if ($row[ 'size']=="plaster 16-19 cm GK" ){echo 'selected="selected"';}?> value="plaster 16-19 cm GK">plaster 16-19 cm GK</option>
-            <option <?php if ($row[ 'size']=="plaster 28-33 cm" ){echo 'selected="selected"';}?> value="plaster 28-33 cm">plaster 28-33 cmK</option>
+        <select name="size" id="sizeSelect" class="sizeSelectEdit">
+            <option <?php if ($row[ 'size']=="Sklejka 3 mm" ){echo 'selected="selected"';}?> value="Sklejka 3 mm" data-category="1">Sklejka 3 mm</option>
+            <option <?php if ($row[ 'size']=="Sklejka 5 mm" ){echo 'selected="selected"';}?> value="Sklejka 5 mm" data-category="1">Sklejka 5 mm</option>
+            <option <?php if ($row[ 'size']=="Plaster 7-8 cm" ){echo 'selected="selected"';}?> value="Plaster 7-8 cm" data-category="2">Plaster 7-8 cm</option>
+            <option <?php if ($row[ 'size']=="Plaster 8-9 cm" ){echo 'selected="selected"';}?> value="Plaster 8-9 cm" data-category="2">Plaster 8-9 cm</option>
+            <option <?php if ($row[ 'size']=="plaster 16-19 cm GK" ){echo 'selected="selected"';}?> value="Plaster 16-19 cm, GK" data-category="2">Plaster 16-19 cm, GK</option>
+            <option <?php if ($row[ 'size']=="Plaster 28-33 cm" ){echo 'selected="selected"';}?> value="Plaster 28-33 cm" data-category="2">Plaster 28-33 cm</option>
+            <option <?php if ($row[ 'size']=="Plaster 38-42 cm" ){echo 'selected="selected"';}?> value="Plaster 38-42 cm" data-category="2">Plaster 38-42 cm</option>
+            <option <?php if ($row[ 'size']=="Inne" ){echo 'selected="selected"';}?> value="Inne" data-category="1">Inne</option>
+            <option <?php if ($row[ 'size']=="Inne" ){echo 'selected="selected"';}?> value="Inne" data-category="2">Inne</option>
         </select>
         <?php
         echo '
+        <input type="text" name="quantity" placeholder="Ilość" required value='.$row['quantity'].' />
         <textarea name="comments" cols="30" rows="5" placeholder="Wpisz uwagę">'.$row['comments'].'</textarea>
         <input type="submit" name="submit" value="Dodaj" class="bg" id="newProject__submit" /> 
           <input type="hidden" name="id" value="'.$id.'">

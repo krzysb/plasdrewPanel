@@ -11,7 +11,7 @@ if (isset($_POST['submit'])){
     $date =  date("Y-m-d H:i");
     
 //    UPLOAD
-    include ("upload.php");
+//    include ("upload.php");
     
     $query = "INSERT into `projects` (customer, productName, quantity, material, size, comments, dateAdd)
 VALUES  ('$customerName', '$product', '$quantity', '$material', '$size', '$comments', '$date')";
