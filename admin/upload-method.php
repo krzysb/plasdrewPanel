@@ -23,7 +23,7 @@ VALUES ('$id', '$target_file')";
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Sukcess!</h4>
             <p>
-                <?php  echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " został dodany.";?>
+                <?php  echo "Plik ". basename( $_FILES["fileToUpload"]["name"]). " został dodany.";?>
             </p>
             <input type="button" value="OK" onclick="window.location.href = 'index.php'" /> </div>
         <script>

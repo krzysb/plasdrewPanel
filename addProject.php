@@ -1,6 +1,6 @@
 <div class="newProject new" id="newProject">
     <h1 class="newProject__item">Dodaj projekt</h1>
-    <form class="newProject__item" id="addProject" name="addNewProject" action="?action=add-project" method="post">
+    <form class="newProject__item" id="addProject" name="addNewProject" action="?action=add-project" method="post" enctype="multipart/form-data">
         <input type="text" name="customerName" placeholder="Klient" required />
         <select name="product" id="productSelect">
             <option value="Winietka">Winietka</option>
@@ -31,6 +31,7 @@
         </select>
         <input type="text" name="quantity" placeholder="Ilość" required />
         <textarea name="comments" cols="30" rows="5" placeholder="Wpisz uwagę"></textarea>
+        <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
         <input type="submit" name="submit" value="Dodaj" class="bg" id="newProject__submit" /> </form>
 </div>
 <div class="project-add-form__close"><a href="">x</a> </div>

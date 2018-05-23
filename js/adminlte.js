@@ -53,6 +53,10 @@
             element.show();
         }
     });
+    //    UPLOAD
+    $('.deleteFiles').click(function () {
+        return confirm("Jesteś pewny?");
+    });
     //OPERATOR
     $("#closeProjectMessageButon").click(function () {
         window.location('index.php');
