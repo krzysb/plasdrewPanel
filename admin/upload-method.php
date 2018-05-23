@@ -11,9 +11,13 @@ $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-       
-   $query = "UPDATE projects set filePath='$target_file' where id='$id'";
-        if (mysqli_query($con, $query)) {
+        
+        $query = "INSERT into `files` (idProject,path)
+VALUES ('$id', '$target_file')";
+        $result = mysqli_query($con,$query);
+        if($result){ 
+      
+        
 ?>
     <div class="newProject">
         <div class="alert alert-success" role="alert">
@@ -32,6 +36,7 @@ $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         }
 
    } else {
+        
        echo "Nie udało się dodać pliku.";
     }
 

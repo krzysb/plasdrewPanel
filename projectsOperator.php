@@ -1,9 +1,32 @@
 <?php
+
 if(isset ($_GET["order"])){
     $order=$_GET["order"];      
 }else{
     $order="niezrealizowane" ;
 }
+
+if (isset($_GET["action"])){
+    $id=$_GET["id"];
+    include("admin/showFiles-method.php");
+
+   echo '
+   <div class="box project-add-form uploaded-files" id="project-add-form" draggable="true">
+   <h3 class="uploaded-files__title">Pliki projektu</h3>';
+showFiles($id, $con);
+
+    echo '
+       <div class="project-add-form__close"><a href="index.php?order='.$order.'">x</a> </div>
+    </div>
+    <script>
+    document.getElementById("project-add-form").style.display = "block";
+    </script>'; 
+    
+}
+
+
+
+
 
 ?>
     <select name="optionProject" id="orderProjects">
@@ -48,11 +71,8 @@ if(isset ($_GET["order"])){
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<tr><td>" . $row["id"]. "</td><td>". $row["customer"]. "</td><td>" . $row["productName"]. "</td><td>". $row["quantity"]."</td><td>".$row["material"]."</td><td>".$row["size"]."</td><td class='comments'>".$row["comments"]."</td>";
                     
-                        if(!empty($row["filePath"])){
-                            echo "<td> <a class='uploadFileButton' href=".$row["filePath"]."><i class='fa fa-file-o' aria-hidden='true'></i></a></td>";
-                        }else{
-                            echo "<td></td>";
-                        }
+                            echo "<td> <a class='uploadFileButton' href='?action=showFiles&id=".$row["id"]."&order=$order'><i class='fa fa-file-o' aria-hidden='true'></i></a></td>";
+                      
                                      
                     if ($row["status"]==0){
                         echo "<td> <a class='readyProjectButton' href='?action=readyProject&id=".$row["id"]."'>GOTOWE</a></td><td>--:--</td>

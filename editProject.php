@@ -33,7 +33,7 @@ echo '<div class="newProject" id="newProject">
             <option <?php if ($row[ 'size']=="Sklejka 5 mm" ){echo 'selected="selected"';}?> value="Sklejka 5 mm" data-category="1">Sklejka 5 mm</option>
             <option <?php if ($row[ 'size']=="Plaster 7-8 cm" ){echo 'selected="selected"';}?> value="Plaster 7-8 cm" data-category="2">Plaster 7-8 cm</option>
             <option <?php if ($row[ 'size']=="Plaster 8-9 cm" ){echo 'selected="selected"';}?> value="Plaster 8-9 cm" data-category="2">Plaster 8-9 cm</option>
-            <option <?php if ($row[ 'size']=="plaster 16-19 cm GK" ){echo 'selected="selected"';}?> value="Plaster 16-19 cm, GK" data-category="2">Plaster 16-19 cm, GK</option>
+            <option <?php if ($row[ 'size']=="Plaster 16-19 cm, GK" ){echo 'selected="selected"';}?> value="Plaster 16-19 cm, GK" data-category="2">Plaster 16-19 cm, GK</option>
             <option <?php if ($row[ 'size']=="Plaster 28-33 cm" ){echo 'selected="selected"';}?> value="Plaster 28-33 cm" data-category="2">Plaster 28-33 cm</option>
             <option <?php if ($row[ 'size']=="Plaster 38-42 cm" ){echo 'selected="selected"';}?> value="Plaster 38-42 cm" data-category="2">Plaster 38-42 cm</option>
             <option <?php if ($row[ 'size']=="Inne" ){echo 'selected="selected"';}?> value="Inne" data-category="1">Inne</option>

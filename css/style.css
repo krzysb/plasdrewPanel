@@ -265,10 +265,6 @@ table td {
     vertical-align: middle;
 }
 
-.uploadFileButton {
-    padding-left: 1rem;
-}
-
 
 /*OPERATOR TABLE*/
 
@@ -286,6 +282,31 @@ table td {
 
 
 /*UPLOAD*/
+
+.uploadFileButton {
+    padding-left: 1rem;
+}
+
+.uploaded-files {
+    margin: 1rem 0;
+}
+
+.uploaded-files i {
+    margin: auto;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem;
+    font-weight: 300;
+}
+
+.uploaded-files i:hover {
+    opacity: 0.5;
+}
+
+.uploaded-files__title {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #fff;
+}
 
 #fileToUpload {
     background-color: transparent;

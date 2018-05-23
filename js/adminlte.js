@@ -20,8 +20,8 @@
     }
 
     function NewProjectFormVisabilityClose() {
-        document.getElementById("project-add-form").style.display = "none";
         window.location('index.php');
+        document.getElementById("project-add-form").style.display = "none";
     }
     //    ADD-PROJECT
     $('#materialSelect').on('change', function () {
